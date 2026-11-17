@@ -34,7 +34,26 @@
     }
 
     .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .nav-logo-img { width: 38px; height: 38px; object-fit: contain; display: block; flex-shrink: 0; }
+    .nav-logo-img {
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+      display: block;
+      flex-shrink: 0;
+      animation: saltar 1.6s ease-in-out infinite;
+    }
+
+    @keyframes saltar {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+      }
+      35% {
+        transform: translateY(-8px) scale(1.06);
+      }
+      55% {
+        transform: translateY(0) scale(0.97);
+      }
+    }
 
     #about .about-photo-wrap {
       position: relative; flex: 1 1 300px; display: flex; flex-direction: column;
@@ -43,6 +62,9 @@
     }
     #about .about-photo-wrap .pulpito-animado { width: 100%; max-width: 350px; }
     #about .about-photo-wrap img { display: block; width: 100%; height: auto; }
+    #about .about-photo-wrap .pulpito-animado img {
+      animation: saltar 2.2s ease-in-out infinite;
+    }
     #about .about-photo-sticker {
       position: static; align-self: center; display: inline-block;
       padding: 12px 25px; border-radius: 999px; background: var(--accent);
@@ -68,7 +90,7 @@
       display: block; margin-bottom: 15px;
     }
     .skill-bento-desc {
-      display: none; margin-top: 10px; color: var(--text-2);
+      margin-top: 10px; color: var(--text-2);
       font-size: 1rem; line-height: 1.6; margin-bottom: 20px;
     }
     .skill-bento-desc.active { display: block; }
@@ -178,6 +200,32 @@
     @media (max-width: 768px) {
       .san-panel { padding: 55px 0; }
       .panel-card { padding: 22px; }
+
+      .hero-visual {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        width: 100%;
+      }
+
+      .hero-img-card {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+      }
+
+      .hero-img-card img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+        border-radius: 20px;
+      }
+
+      .hero-sticker-wrap {
+        width: 100%;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -188,7 +236,7 @@
   <nav class="nav" id="nav">
     <div class="nav-inner">
       <a href="#hero" class="nav-logo">
-        <img src="pulpito.png" alt="Pulpito MotoSan" class="nav-logo-img pulpito-animado">
+        <img src="pulpito-header.png" alt="Pulpito MotoSan" class="nav-logo-img pulpito-animado">
         MotoSan
       </a>
       <ul class="nav-links" id="navLinks">
@@ -267,8 +315,8 @@
         <div class="skill-bento-card reveal-scale">
           <div>
             <span class="skill-bento-name">Turno Garantizado</span>
-            <span class="skill-bento-desc">El facilitador recibe la primera tanda como voto de confianza, pero con un depósito de garantía que respalda al grupo. Si alguien falla o intenta irse con la plata, el sistema lo detecta, lo marca en la lista negra y activa el fondo con su garantía. Aquí no entra cualquiera, aquí entran personas que califican.</span>
-            <button class="btn-leer-mas" onclick="toggleTexto(this)">Leer más ↓</button>
+            <span class="skill-bento-desc active">El facilitador recibe la primera tanda como voto de confianza, pero con un depósito de garantía que respalda al grupo. Si alguien falla o intenta irse con la plata, el sistema lo detecta, lo marca en la lista negra y activa el fondo con su garantía. Aquí no entra cualquiera, aquí entran personas que califican.</span>
+            <button class="btn-leer-mas" onclick="toggleTexto(this)">Leer menos ↑</button>
           </div>
           <span class="skill-bento-level">Seguro</span>
         </div>
@@ -276,8 +324,8 @@
         <div class="skill-bento-card reveal-scale reveal-delay-1">
           <div>
             <span class="skill-bento-name">Comunidad Verificada</span>
-            <span class="skill-bento-desc">Validamos la identidad de cada participante (cédula y selfie). Sabes que tu grupo está formado por personas reales, con ingresos comprobables y comprometidas. Adiós a los fantasmas y a los morosos.</span>
-            <button class="btn-leer-mas" onclick="toggleTexto(this)">Leer más ↓</button>
+            <span class="skill-bento-desc active">Validamos la identidad de cada participante (cédula y selfie). Sabes que tu grupo está formado por personas reales, con ingresos comprobables y comprometidas. Adiós a los fantasmas y a los morosos.</span>
+            <button class="btn-leer-mas" onclick="toggleTexto(this)">Leer menos ↑</button>
           </div>
           <span class="skill-bento-level">Confiable</span>
         </div>
@@ -285,8 +333,8 @@
         <div class="skill-bento-card reveal-scale reveal-delay-2">
           <div>
             <span class="skill-bento-name">Pagos Directos</span>
-            <span class="skill-bento-desc">El dinero va directo del bolsillo del motorizado al bolsillo del ganador del turno. Sin intermediarios, sin retenciones. La plataforma solo les dice a quién pagarle y muestra en vivo quién ya pagó.</span>
-            <button class="btn-leer-mas" onclick="toggleTexto(this)">Leer más ↓</button>
+            <span class="skill-bento-desc active">El dinero va directo del bolsillo del motorizado al bolsillo del ganador del turno. Sin intermediarios, sin retenciones. La plataforma solo les dice a quién pagarle y muestra en vivo quién ya pagó.</span>
+            <button class="btn-leer-mas" onclick="toggleTexto(this)">Leer menos ↑</button>
           </div>
           <span class="skill-bento-level">Transparente</span>
         </div>
@@ -294,8 +342,8 @@
         <div class="skill-bento-card reveal-scale">
           <div>
             <span class="skill-bento-name">Facilitadores en Red</span>
-            <span class="skill-bento-desc">Conviértete en Facilitador MotoSan: gestiona tu propio grupo, recibe comisiones por tu gestión y asegura tu primera tanda. Tú pones la comunidad y la responsabilidad, el sistema te da la herramienta.</span>
-            <button class="btn-leer-mas" onclick="toggleTexto(this)">Leer más ↓</button>
+            <span class="skill-bento-desc active">Conviértete en Facilitador MotoSan: gestiona tu propio grupo, recibe comisiones por tu gestión y asegura tu primera tanda. Tú pones la comunidad y la responsabilidad, el sistema te da la herramienta.</span>
+            <button class="btn-leer-mas" onclick="toggleTexto(this)">Leer menos ↑</button>
           </div>
           <span class="skill-bento-level">Liderazgo</span>
         </div>
@@ -303,8 +351,8 @@
         <div class="skill-bento-card reveal-scale reveal-delay-1">
           <div>
             <span class="skill-bento-name">Cesta de Comida</span>
-            <span class="skill-bento-desc">Cada semana, con tu aporte, acumulamos el fondo para la Ruleta. Se rifa una Cesta de Comida y souvenirs (gorras, franelas, plátanos). ¡Ahorras y ganas!</span>
-            <button class="btn-leer-mas" onclick="toggleTexto(this)">Leer más ↓</button>
+            <span class="skill-bento-desc active">Cada semana, con tu aporte, acumulamos el fondo para la Ruleta. Se rifa una Cesta de Comida y souvenirs (gorras, franelas, plátanos). ¡Ahorras y ganas!</span>
+            <button class="btn-leer-mas" onclick="toggleTexto(this)">Leer menos ↑</button>
           </div>
           <span class="skill-bento-level">Premios</span>
         </div>
@@ -312,8 +360,8 @@
         <div class="skill-bento-card reveal-scale reveal-delay-2">
           <div>
             <span class="skill-bento-name">Compromiso Colectivo</span>
-            <span class="skill-bento-desc">Firmas un compromiso digital al entrar. Si fallas, no le quedas mal a la plataforma, le quedas mal a todo tu grupo. La transparencia hace que nadie quiera ser el moroso del grupo.</span>
-            <button class="btn-leer-mas" onclick="toggleTexto(this)">Leer más ↓</button>
+            <span class="skill-bento-desc active">Firmas un compromiso digital al entrar. Si fallas, no le quedas mal a la plataforma, le quedas mal a todo tu grupo. La transparencia hace que nadie quiera ser el moroso del grupo.</span>
+            <button class="btn-leer-mas" onclick="toggleTexto(this)">Leer menos ↑</button>
           </div>
           <span class="skill-bento-level">Compromiso</span>
         </div>
@@ -452,7 +500,7 @@
     <div class="container">
       <div class="footer-socials">
         <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-        <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664 4.771-4.919 4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
         <a href="#" aria-label="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
       </div>
       <p class="footer-text">Hecho con <span>♥</span> para el Motorizado Venezolano · © 2026 MotoSan</p>
@@ -466,7 +514,12 @@
     function toggleTexto(boton) {
       const texto = boton.previousElementSibling;
       texto.classList.toggle('active');
-      boton.innerHTML = texto.classList.contains('active') ? 'Leer menos ↑' : 'Leer más ↓';
+
+      if (texto.classList.contains('active')) {
+        boton.innerHTML = 'Leer menos ↑';
+      } else {
+        boton.innerHTML = 'Leer más ↓';
+      }
     }
 
     // Lógica de la Ruleta
