@@ -772,44 +772,62 @@
       </div>
     </div>
   </section>
-
   <!-- RULETA MOTOSAN -->
   <section class="panel-control san-panel" id="ruleta">
     <div class="container panel-center">
       <div class="reveal panel-heading">
         <span class="section-label"><span class="dot"></span> La Ruleta</span>
         <h2 class="section-title">¡La Ruleta MotoSan!</h2>
-        <p class="section-desc">Cada semana, la ruleta presenta el turno correspondiente. El orden ya está definido; la ruleta lo hace visible y compartible.</p>
+        <p class="section-desc">Cada semana, la Ruleta MotoSan selecciona al ganador del turno. Todos los participantes tienen la misma oportunidad.</p>
       </div>
-      
+
       <div class="ruleta-container">
         <h3 class="ruleta-titulo">Ruleta MotoSan</h3>
-        <p class="ruleta-subtitulo">Toca el botón y mira quién recibe el turno esta semana</p>
-        
-        <div class="ruleta-wrapper">
-          <div class="ruleta-puntero"></div>
-          <div class="ruleta-circulo" id="ruletaCirculo">
-            <div class="ruleta-nombres" id="ruletaNombres"></div>
+        <p class="ruleta-subtitulo">Toca el botón y descubre quién gana esta semana</p>
+
+        <div class="ruleta-info">
+          <div class="ruleta-info-item">
+            <span>Semana</span>
+            <strong id="ruletaSemana">—</strong>
           </div>
-          <!-- El pulpito en el centro -->
-          <div class="ruleta-centro">
-             <img src="pulpito.png" alt="Pulpito MotoSan">
+          <div class="ruleta-info-item">
+            <span>Participantes</span>
+            <strong id="ruletaParticipantes">10</strong>
+          </div>
+          <div class="ruleta-info-item">
+            <span>Pozo semanal</span>
+            <strong>$110</strong>
           </div>
         </div>
-        
-        <button class="btn-girar" id="btnGirar">¡GIRAR!</button>
-        
+
+        <div class="ruleta-wrapper">
+          <div class="ruleta-puntero"></div>
+
+          <div class="ruleta-circulo" id="ruletaCirculo">
+            <div class="ruleta-segmento" id="ruletaSegmentos"></div>
+          </div>
+
+          <div class="ruleta-centro">
+            <img src="pulpito.png" alt="Pulpito MotoSan">
+          </div>
+        </div>
+
+        <button class="btn-girar" id="btnGirar">¡GIRAR LA RULETA!</button>
+
         <div class="ruleta-resultado" id="ruletaResultado">
-          <h4 style="margin: 0 0 10px 0; color: #0b1c3a;">¡Turno de la Semana!</h4>
-          <p style="margin: 0 0 5px 0; color: #4a5568;">El turno es para:</p>
-          <div style="font-size: 1.5rem; font-weight: bold; margin-bottom: 10px;" id="ganadorNombre">...</div>
-          <p style="margin: 0 0 5px 0; color: #4a5568;">Y se lleva el premio de la semana:</p>
-          <div style="font-size: 1.2rem; color: #10b981; font-weight: bold;" id="ganadorPremio">...</div>
+          <h4>¡Tenemos un Ganador!</h4>
+          <p>La Ruleta MotoSan seleccionó a:</p>
+          <div class="ruleta-ganador" id="ganadorNombre">...</div>
+          <p>Y se lleva el premio de la semana:</p>
+          <div class="ruleta-premio" id="ganadorPremio">...</div>
+          <p class="ruleta-verificacion">
+            Sorteo semanal verificado<br>
+            <span id="ruletaSemilla">—</span>
+          </p>
         </div>
       </div>
     </div>
   </section>
-
   <!-- CÓMO FUNCIONA -->
   <section class="education" id="education">
     <div class="container">
